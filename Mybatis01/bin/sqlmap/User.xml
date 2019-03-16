@@ -13,6 +13,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	
 	</select>
+	<!-- 模糊查询 -->
+	<!-- user表要用    ` user` 这样标识       -->
+	<select id="querUserByname1" parameterType="string" resultType="com.liu.domain.User">
+		select * from `user` where username like #{username}
+	</select>
 
 
 </mapper>
