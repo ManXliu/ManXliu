@@ -18,6 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="querUserByname1" parameterType="string" resultType="com.liu.domain.User">
 		select * from `user` where username like #{username}
 	</select>
+	<!-- 如果查询的简单数据类型，${}里面必须写value -->
+	<select id="queryUserName2" parameterType="string" resultType="com.liu.domain.User">
+	select * from `user` where username like "%${value}%"
+	
+	</select>
 
 
 </mapper>

@@ -37,7 +37,7 @@ public class MybatisTest {
 		sqlSession.close();
 	}
 	@Test
-	public void queryUsername() throws Exception {
+	public void queryUsername1() throws Exception {
 		
 		//创建SqlSession对象
 		SqlSession sqlSession=sqlSessionFactory.openSession();
@@ -50,6 +50,21 @@ public class MybatisTest {
 		}
 		//释放资源
 		sqlSession.close();
+	}
+	@Test
+	public void queryByUserName2(){
+		//获得SqlSession
+		SqlSession sqlSession=sqlSessionFactory.openSession();
+		//查询多条数据 selectList（映射文件ID参数，传入字符串）
+		List<String> list=sqlSession.selectList("queryUserName2", "王");
+		
+		for(Object user : list) {
+			System.out.println(user);
+		}
+		//释放资源
+		sqlSession.close();
+		
+		
 	}
 	
 }
