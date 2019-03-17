@@ -3,12 +3,14 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace：命名空间，用于隔离sql -->
-<mapper namespace="test">
+
+<mapper namespace="com.liu.mapper.UserMapper">
+
 	<!-- id:statement的id或者叫做sql的id -->
 	<!-- parameterType:声明输入参数类型 -->
 	<!-- resultType:声明输出结果的类型，应该填写domain全路径 -->
 	<!-- #{}:输入参数的占位符，相当于jdbc的？ -->
-	<select id="queryUserById" parameterType="int" resultType="com.liu.domain.User">
+	<select id="queryUserById" parameterType="int" resultType="user">
 		select * from `user` where id=#{id}
 		
 	
