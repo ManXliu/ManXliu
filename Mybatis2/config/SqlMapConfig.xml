@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!-- 如果在里面写了property 还是按照resource中的数据来 -->
+	<properties resource="jdbc.properties">
+		<property name="url" value="232323"/>
+	</properties>
+<!-- 别名设置，开启包扫描，默认文件名，然后输出的结果类型 就可以用User表示，不区分大小写 -->
+	<typeAliases>
+	<package name="com.liu.domain"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<!-- 使用JDBC事务管理 -->
+		
+			<transactionManager type="JDBC">
+			</transactionManager>
+			<!-- 数据库连接池 -->
+				<dataSource type="POOLED">
+					<property name="driver" value="${jdbc.driver}"></property>
+					<property name="url" value="${jdbc.url}"></property>
+					<property name="username" value="${jdbc.username}"></property>
+					<property name="password" value="${jdbc.password}"></property>
+				</dataSource>
+				
+			
+			
+			
+		</environment>
+	
+	</environments>
+	<!-- 加载映射文件 -->
+	<mappers>
+		<mapper resource="sqlmap/User.xml"/>
+		<!--  <mapper resource="com/liu/mapper/UserMapper.xml"/>-->
+		<!-- 开启包扫描，扫描配置的例如UserMapper.XML文件 -->
+		<package name="com.liu.mapper"/>
+	</mappers>
+
+</configuration>

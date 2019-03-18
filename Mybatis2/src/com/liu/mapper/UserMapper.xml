@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，用于隔离sql -->
+
+<mapper namespace="com.liu.mapper.UserMapper">
+
+	<!-- id:statement的id或者叫做sql的id -->
+	<!-- parameterType:声明输入参数类型 -->
+	<!-- resultType:声明输出结果的类型，应该填写domain全路径 -->
+	<!-- #{}:输入参数的占位符，相当于jdbc的？ -->
+	<select id="queryUserById" parameterType="int" resultType="user">
+		select * from `user` where id=#{id}
+		
+	
+	</select>
+	<!-- 模糊查询 -->
+	<!-- user表要用    ` user` 这样标识       -->
+	<select id="querUserByname1" parameterType="string" resultType="com.liu.domain.User">
+		select * from `user` where username like #{username}
+	</select>
+	<!-- 如果查询的简单数据类型，${}里面必须写value -->
+	<select id="queryUserName2" parameterType="string" resultType="com.liu.domain.User">
+	select * from `user` where username like "%${value}%"
+	</select>
+	
+	<!-- 插入用户 使用自增的方式 -->
+	<!-- resultType:输入结果类型 -->
+	<!-- keyColumn:数据库主键列名 -->
+	
+	<!-- keyProperty:实体类对应的属性值 -->
+	<!-- order：是在之前，还是之后进行操作 -->
+	
+	
+	<insert id="saveUser" parameterType="com.liu.domain.User">
+		<selectKey resultType="int" keyColumn="id" keyProperty="id" order="AFTER">
+			<!-- mysql函数,返回自增列的新纪录的id值 -->
+			Select last_insert_id()
+		</selectKey>
+		insert into `user`(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
+		
+	</insert>
+	<!-- 使用UUID的方式自增 -->
+	<insert id="saveUser2" parameterType="com.liu.domain.User">
+		<selectKey keyColumn="id" keyProperty="id" order="BEFORE" resultType="string">
+			select uuid()
+		</selectKey>
+		insert into `user`(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
+		
+	
+	</insert>
+	<!-- 更新用户 -->
+	<update id="updateUserById" parameterType="com.liu.domain.User">
+		update `user` set username=#{username} where id=#{id}
+	</update>
+	<!-- 删除  -->
+	<delete id="deleteUserById" parameterType="int">
+		delete from user where id=#{id} 
+	</delete>
+
+
+</mapper>
