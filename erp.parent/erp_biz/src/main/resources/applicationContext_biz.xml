@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		">
+	<bean id="depBiz" class="com.liu.erp.biz.impl.DepServiceImpl">
+		<property name="depDao" ref="depDao"></property>
+	</bean>
+	<bean id="empBiz" class="com.liu.erp.biz.impl.EmpBizImpl">
+		<property name="empDao" ref="empDao"></property>
+		<property name="roleDao" ref="roleDao"></property>
+	</bean>
+	<bean id="goodsBiz" class="com.liu.erp.biz.impl.GoosBizImpl">
+		<property name="goodsDao" ref="goodsDao"></property>
+	</bean>
+	<bean id="goodsTypeBiz" class="com.liu.erp.biz.impl.GoodsTypeImpl">
+		<property name="goodsType" ref="goodsType"></property>
+	</bean>
+	<bean id="menuBiz" class="com.liu.erp.biz.impl.MenuBizImpl">
+		<property name="menuDao" ref="menuDao"></property>
+	</bean>
+	<!-- 盘盈盘亏 -->
+	<bean id="inventoryBiz" class="com.liu.erp.biz.impl.InventoryBiz">
+		<property name="inventoryDao" ref="inventoryDao"></property>
+	</bean>
+
+	<!-- 订单明细 -->
+	<bean id="orderdetailBiz" class="com.liu.erp.biz.impl.OrderdetailBiz">
+		<property name="orderdetailDao" ref="orderdetailDao"></property>
+		<property name="storedetailDao" ref="storedetailDao"></property>
+		<property name="storeoperDao" ref="storeoperDao"></property>
+	</bean>
+	<!-- 订单 -->
+	<bean id="ordersBiz" class="com.liu.erp.biz.impl.OrdersBiz">
+		<property name="ordersDao" ref="ordersDao"></property>
+		<property name="supplierDao" ref="supplierDao"></property>
+		<property name="empDao" ref="empDao"></property>
+	</bean>
+	<!-- 退货订单明细 -->
+	<bean id="returnorderdetailBiz" class="com.liu.erp.biz.impl.ReturnorderdetailBiz">
+		<property name="returnorderdetailDao" ref="returnorderdetailDao"></property>
+	</bean>
+	<!-- 退货订单 -->
+	<bean id="returnordersBiz" class="com.liu.erp.biz.impl.ReturnordersBiz">
+		<property name="returnordersDao" ref="returnordersDao"></property>
+	</bean>
+	<!-- 角色 -->
+	<bean id="roleBiz" class="com.liu.erp.biz.impl.RoleBiz">
+		<property name="roleDao" ref="roleDao"></property>
+		<property name="menuDao" ref="menuDao"></property>
+	</bean>
+	<!-- 仓库 -->
+	<bean id="storeBiz" class="com.liu.erp.biz.impl.StoreBiz">
+		<property name="storeDao" ref="storeDao"></property>
+	</bean>
+	<!-- 仓库库存 -->
+	<bean id="storedetailBiz" class="com.liu.erp.biz.impl.StoredetailBiz">
+		<property name="storedetailDao" ref="storedetailDao"></property>
+		<property name="goodsDao" ref="goodsDao"></property>
+		<property name="storeDao" ref="storeDao"></property>
+	</bean>
+	<!-- 仓库操作记录 -->
+	<bean id="storeoperBiz" class="com.liu.erp.biz.impl.StoreoperBiz">
+		<property name="storeoperDao" ref="storeoperDao"></property>
+		<property name="storeDao" ref="storeDao"></property>
+		<property name="empDao" ref="empDao"></property>
+		<property name="goodsDao" ref="goodsDao"></property>
+
+
+	</bean>
+	<!-- 供应商 -->
+	<bean id="supplierBiz" class="com.liu.erp.biz.impl.SupplierBiz">
+		<property name="supplierDao" ref="supplierDao"></property>
+	</bean>
+
+
+
+
+
+</beans>
+

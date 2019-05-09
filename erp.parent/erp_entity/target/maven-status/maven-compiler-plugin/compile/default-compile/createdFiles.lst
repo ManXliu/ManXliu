@@ -1,0 +1,11 @@
+com\liu\erp\entity\Storedetail.class
+com\liu\erp\entity\Inventory.class
+com\liu\erp\entity\Orderdetail.class
+com\liu\erp\entity\Tree.class
+com\liu\erp\entity\Returnorderdetail.class
+com\liu\erp\entity\Store.class
+com\liu\erp\entity\Returnorders.class
+com\liu\erp\entity\Supplier.class
+com\liu\erp\entity\Storeoper.class
+com\liu\erp\entity\Role.class
+com\liu\erp\entity\Orders.class

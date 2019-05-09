@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/erp.parent.iml" filepath="$PROJECT_DIR$/erp.parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erp_biz/erp_biz.iml" filepath="$PROJECT_DIR$/erp_biz/erp_biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erp_dao/erp_dao.iml" filepath="$PROJECT_DIR$/erp_dao/erp_dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erp_entity/erp_entity.iml" filepath="$PROJECT_DIR$/erp_entity/erp_entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erp_web/erp_web.iml" filepath="$PROJECT_DIR$/erp_web/erp_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erp_biz/src/test/test1.iml" filepath="$PROJECT_DIR$/erp_biz/src/test/test1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erp_web/src/test/test2.iml" filepath="$PROJECT_DIR$/erp_web/src/test/test2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erp_biz/src/test/test4.iml" filepath="$PROJECT_DIR$/erp_biz/src/test/test4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/erp_web/src/test/test5.iml" filepath="$PROJECT_DIR$/erp_web/src/test/test5.iml" />
+    </modules>
+  </component>
+</project>

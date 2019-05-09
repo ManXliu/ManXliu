@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>部门管理</title>
+<link rel="stylesheet" type="text/css" href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="ui/jquery.serializejson.min.js"></script>
+<script type="text/javascript" src="ui/crud.js"></script>
+<script type="text/javascript">
+var name="dep";
+var columns=[[    
+	        {field:'uuid',title:'部门编号',width:100},    
+	        {field:'name',title:'部门名称',width:100},    
+	        {field:'tele',title:'部门联系电话',width:100,align:'right'},
+	        {field:'-',title:'部门名称',width:100,formatter:function(value,row,index){
+	        	return "<a href='#' onclick='dele("+row.uuid+")'>删除</a>&nbsp;&nbsp;<a href='#' onclick='edit("+row.uuid+")'>编辑</a>";
+	        }}  
+	    ]];
+</script>
+</head>
+<body>
+<form id="serachForm">
+	部门名称:<input name="t1.name">
+	部门电话:<input name="t1.tele">
+	<button id="btnSerach" type="button">查询</button>
+</form>
+	<table id="grid">
+	
+	
+	</table>
+	<div id="editWindow" class="easyui-window" data-options="closed:true" style="width: 300px;height: 200px" title="部门编辑">
+		<form id="editForm">
+			<input type="hidden" name="t.uuid">
+			<table>
+				
+				<tr><td>名称:</td><td><input name="t.name"></td></tr>
+				<tr><td>电话:</td><td><input name="t.tele"></td></tr>
+			</table>
+			<button id="btnSave">保存</button>
+		
+		</form>
+	
+	</div>
+
+</body>
+</html>

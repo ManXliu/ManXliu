@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.liu.erp.entity.Emp" table="emp">
+<id name="uuid">
+<generator class="identity"></generator>
+</id>
+<property name="name"></property>
+<property name="gender"></property>
+<property name="username"></property>
+<property name="pwd"></property>
+<property name="email"></property>
+<property name="tele"></property>
+<property name="address"></property>
+<property name="birthday"></property>
+<many-to-one name="dep" column="depuuid" class="com.liu.erp.entity.Dep" ></many-to-one>
+</class>
+
+
+</hibernate-mapping>

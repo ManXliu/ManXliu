@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>部门管理</title>
+<link rel="stylesheet" type="text/css" href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="ui/jquery.serializejson.min.js"></script>
+<script type="text/javascript" src="ui/pwd.js"></script>
+<script type="text/javascript" src="ui/date.js"></script>
+<script type="text/javascript">
+var name="emp";
+var columns=[[
+  		    {field:'uuid',title:'编号',width:100},
+  		    {field:'username',title:'登陆名',width:100},
+  		    {field:'name',title:'真实姓名',width:100},
+  		    {field:'gender',title:'性别',width:100,formatter:function(value, row, index){
+  		    	var value = row.gender;
+  		    	if(1 == value*1){
+  		    		return '男';
+  		    	}
+  		    	if(0 == value*1){
+  		    		return '女';
+  		    	}
+  		    }},
+  		    {field:'email',title:'邮件地址',width:100},
+  		    {field:'tele',title:'联系电话',width:100},
+  		    {field:'address',title:'联系地址',width:100},
+  		    {field:'birthday',title:'出生年月日',width:100,formatter:function(value){
+  		    	return new Date(value).Format("yyyy-MM-dd");
+  		    }},
+  		    {field:'dep',title:'部门编号',width:100,formatter:function(value){
+  		    	return value.name;
+  		    }},
+
+			{field:'-',title:'操作',width:200,formatter: function(value,row,index){
+				var oper = "<a href=\"javascript:void(0)\" onclick=\"edit(" + row.uuid + ')">重置密码</a>';
+				
+				return oper;
+			}}
+			]];
+</script>
+</head>
+<body>
+
+<table id="grid"></table>
+
+<div id="editWindow" data-options="closed:true" style="width: 300px;height: 300px" title="人员编辑" class="easyui-window">
+	<form id="editForm">
+			<input name="id" type="hidden"> 
+
+		<table>
+				
+			<tr>
+				<td>重置密码:</td><td><input name="newPwd" class="easyui-validatebox" data-options="
+					required:true,missingMessage:'密码不能为空!'
+					">
+				</td>
+			</tr>
+			
+
+		</table>
+		<button id="btnSave" type="button">保存</button>
+	</form>
+</div>
+
+
+</body>
+</html>

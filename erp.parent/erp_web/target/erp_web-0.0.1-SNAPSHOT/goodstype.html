@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>部门管理</title>
+<link rel="stylesheet" type="text/css" href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="ui/jquery.serializejson.min.js"></script>
+<script type="text/javascript" src="ui/crud.js"></script>
+<script type="text/javascript">
+var name="goodstype";
+var columns=[[
+	    {field:'uuid',title:'商品类型编号',width:100},
+		    {field:'name',title:'商品类型名称',width:100},
+
+		{field:'-',title:'操作',width:200,formatter: function(value,row,index){
+			var oper = "<a href=\"javascript:void(0)\" onclick=\"edit(" + row.uuid + ')">修改</a>';
+			oper += ' <a href="javascript:void(0)" onclick="dele(' + row.uuid + ')">删除</a>';
+			return oper;
+		}}
+		]];
+</script>
+</head>
+<body>
+<form id="serachForm">
+	商品名称:<input name="t1.name">
+
+	<button id="btnSerach" type="button">查询</button>
+</form>
+	<table id="grid">
+	
+	
+	</table>
+	<div id="editWindow" class="easyui-window" data-options="closed:true" style="width: 300px;height: 200px" title="部门编辑">
+		<form id="editForm">
+			<input type="hidden" name="t.uuid">
+			<table>
+				
+				<td>商品类型名称</td><td><input name="t.name"> </td>
+			</table>
+			<button id="btnSave">保存</button>
+		
+		</form>
+	
+	</div>
+
+</body>
+</html>
